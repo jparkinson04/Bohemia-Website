@@ -715,7 +715,10 @@ p { margin: 0 0 1em; }
 
   .split { grid-template-columns: 1fr; }
   .split--reverse .split__media { order: 0; }
-  .split__media img { aspect-ratio: 4 / 3; }
+  /* On mobile the image is forced to 4:3 (wider than the source square),
+     so cover crops top + bottom. Anchor the crop to the top so Claire's
+     head stays in frame, only the bowls/candles at the foot get trimmed. */
+  .split__media img { aspect-ratio: 4 / 3; object-position: center top; }
 
   .hero {
     min-height: 90vh;
